@@ -4,35 +4,35 @@ on:
   push:
     branches: [main]
 
-  jobs:
-    build:
-      runs-on: self-hosted
+jobs:
+  build:
+    runs-on: self-hosted
 
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-
-        - name: Node Setup
-          uses: actions/setup-node@v4
-          with:
-            node-version: '18'
-
-        - name: Dependencies Install 
-          run: npm install
-
-    
-    deploy:
-      needs: build
-      runs-on: self-hosted
-
-      steps:
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy on Server directory
-        run: |
-            mkdir -p /home/azubi/deploy/calculator_app/
-            cp -r * /home/azubi/deploy/calculator_app/
-            cd /home/azubi/deploy/calculator_app/
-            npm install --production
-            pm2 describe calculator_app-app > /dev/null && pm2 restart calculator_app || pm2 start index.js --name calculator_app
+      - name: Node Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Dependencies Install 
+        run: npm install
+
+    
+  deploy:
+    needs: build
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Deploy on Server directory
+      run: |
+          mkdir -p /home/azubi/deploy/calculator_app/
+          cp -r * /home/azubi/deploy/calculator_app/
+          cd /home/azubi/deploy/calculator_app/
+          npm install --production
+          pm2 describe calculator_app-app > /dev/null && pm2 restart calculator_app || pm2 start index.js --name calculator_app
