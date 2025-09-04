@@ -15,5 +15,9 @@
     "url": "https://github.com/vaniccc/nodejs_calculator/issues"
   },
   "homepage": "https://github.com/vaniccc/nodejs_calculator#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
 }
