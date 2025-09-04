@@ -15,8 +15,5 @@
     "url": "https://github.com/vaniccc/nodejs_calculator/issues"
   },
   "homepage": "https://github.com/vaniccc/nodejs_calculator#readme",
-  "description": "",
-  "dependencies": {
-    "pm2": "^6.0.10"
-  }
+  "description": ""
 }
