@@ -16,11 +16,11 @@ app.set('view engine', 'ejs');
 
 // index.ejs rendern
 app.get('/', (req, res) => {
-    res.render('pages/index');
+    res.render('index');
 });
 
-app.get('/pages', (req, res) => {
-    res.render('pages/calculator.ejs');
+app.get('/calculator', (req, res) => {
+    res.render('calculator');
 });
 
 // Routes
