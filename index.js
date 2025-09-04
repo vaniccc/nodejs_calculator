@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
     res.render('pages/index');
 });
 
+app.get('/', (req, res) => {
+    res.render('pages/calculator.ejs');
+});
+
 // Routes
 
 // Server starten
