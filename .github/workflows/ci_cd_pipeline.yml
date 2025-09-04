@@ -22,10 +22,10 @@ jobs:
 
     
   deploy:
-  needs: build
-  runs-on: self-hosted
+    needs: build
+    runs-on: self-hosted
 
-  steps:
+    steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
