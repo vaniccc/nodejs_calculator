@@ -16,5 +16,33 @@ body {
     width: 30%;
     height: 50%;
     border: 2px solid white;
-    border-radius: 14px;
+    border-radius: 28px;
+    color: lightgray;
+}
+
+#loginDiv h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5%;
+    margin-top: 20px;
+}
+
+#formDiv {
+    height: 75%;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.loginDiv {
+    height: 35%;
+}
+
+.loginDiv input{
+    width: 80%;
+    height: 30px;
+    border-radius: 10%;
+    padding-left: 2px;
+    background-color: lightgray;
+    color: black;
 }
