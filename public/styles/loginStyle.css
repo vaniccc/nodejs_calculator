@@ -28,8 +28,8 @@ body {
     height: 15%;
 }
 
-#formDiv {
-    height: 68%;
+#form {
+    height: 78%;
     padding: 10px;
     margin-top: 5px;
 }
@@ -62,7 +62,7 @@ body {
     transition: all 0.5s;
 }
 
-#formDiv a {
+#form a {
     color: white;
 }
 
