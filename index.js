@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+// calculator.ejs rendern
 app.get('/calculator', (req, res) => {
     res.render('calculator');
 });
