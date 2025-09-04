@@ -29,9 +29,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install PM2
-      run: npm install -g pm2
-
     - name: Deploy on Server directory
       run: |
         rsync -av --delete ./ /home/azubi/deploy/calculator_app/
