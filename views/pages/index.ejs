@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/styles/resetStyle.css">
+    <link rel="stylesheet" href="/public/styles/loginStyle.css">
+    <title>Taschenrechner Login</title>
+</head>
+<body>
+    <div id="loginDiv">
+        <h2>Taschenrechner Login</h2>
+        <div id="errorMessageDiv">
+            
+        </div>
+        <div id="formDiv">
+            <div class="loginDiv" id="usernameDiv">
+                <label for="username">Benutzername</label>
+                <input type="text" id="username" name="username" required placeholder="Hier ihr Benutzername eingeben...">
+            </div>
+            <div class="loginDiv" id="passwordDiv">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Hier ihr Password eingeben...">
+            </div>
+            <p>Noch kein Konto? <a>Registrieren</a></p>
+        </div>
+        <div>
+            <button>Anmelden</button>
+            <button type="reset">Zurücksetzen</button>
+        </div>
+    </div>
+</body>
+</html>
