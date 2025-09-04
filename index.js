@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     res.render('pages/index');
 });
 
-app.get('/calculator', (req, res) => {
+app.get('/pages', (req, res) => {
     res.render('pages/calculator.ejs');
 });
 
