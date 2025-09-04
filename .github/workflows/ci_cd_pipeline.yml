@@ -35,4 +35,3 @@ jobs:
         cp -r * /home/azubi/deploy/calculator_app/
         cd /home/azubi/deploy/calculator_app/
         npm install --production
-        pm2 describe calculator_app > /dev/null && pm2 restart calculator_app || pm2 start index.js --name calculator_app
