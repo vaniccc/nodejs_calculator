@@ -22,17 +22,19 @@ jobs:
 
     
   deploy:
-    needs: build
-    runs-on: self-hosted
+  needs: build
+  runs-on: self-hosted
 
-    steps:
-    - name: Checkout
+  steps:
+    - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Install PM2
+      run: npm install -g pm2
 
     - name: Deploy on Server directory
       run: |
-          mkdir -p /home/azubi/deploy/calculator_app/
-          cp -r * /home/azubi/deploy/calculator_app/
-          cd /home/azubi/deploy/calculator_app/
-          npm install --production
-          pm2 describe calculator_app-app > /dev/null && pm2 restart calculator_app || pm2 start index.js --name calculator_app
+        rsync -av --delete ./ /home/azubi/deploy/calculator_app/
+        cd /home/azubi/deploy/calculator_app/
+        npm install --production
+        pm2 describe calculator_app > /dev/null && pm2 restart calculator_app || pm2 start index.js --name calculator_app
