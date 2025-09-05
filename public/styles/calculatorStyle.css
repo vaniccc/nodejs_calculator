@@ -5,5 +5,24 @@ html, body {
 }
 
 #main {
-    margin: 20px;
+    height: 100%;
+    padding: 20px;
+}
+
+#Display {
+    height: 25%;
+}
+
+#BtnDiv {
+    height: 75%;
+}
+
+.BtnRow {
+    height: 16%;
+    margin-top: 4px;
+}
+
+.Btn {
+    width: 24.8%;
+    height: 100%;
 }
