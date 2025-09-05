@@ -8,6 +8,7 @@ html, body {
     width: 81%;
     height: 100%;
     padding: 20px;
+    float: left;
 }
 
 #Display {
@@ -40,4 +41,5 @@ html, body {
     width: 18%;
     height: 100%;
     border-left: 2px solid black;
+    float: left;
 }
