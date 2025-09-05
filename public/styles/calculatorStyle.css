@@ -53,6 +53,9 @@ html, body {
     transition: all 0.25s;
 }
 
+#calculateBtn {
+    background-color: rgb(177, 125, 177);
+}
 
 
 #historyDiv {
