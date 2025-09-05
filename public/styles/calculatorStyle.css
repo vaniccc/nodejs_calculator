@@ -25,4 +25,11 @@ html, body {
 .Btn {
     width: 24.8%;
     height: 100%;
+    font-size: 30px;
+    color: white;
+    background-color: gray;
+}
+
+.DarkBtn {
+    background-color: rgb(59, 56, 56);
 }
