@@ -21,7 +21,7 @@ body {
     padding: 10px;
 }
 
-#loginDiv h1 {
+#signupDiv h1 {
     display: flex;
     justify-content: center;
     align-items: center;
