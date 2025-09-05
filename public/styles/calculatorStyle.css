@@ -53,6 +53,11 @@ html, body {
     transition: all 0.25s;
 }
 
+.DarkBtn:active {
+    background-color: rgb(48, 46, 46);
+    transition: all 0.25s;
+}
+
 #calculateBtn {
     background-color: rgb(177, 125, 177);
     transition: all 0.25s;
