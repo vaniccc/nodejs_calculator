@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/resetStyle.css">
+    <link rel="stylesheet" href="/styles/calculatorStyle.css">
+    <title>Taschenrechner Signup</title>
+</head>
+<body>
+     <div id="signupDiv">
+        <h1>Taschenrechner Signup</h1>
+        <div id="errorMessageDiv">
+            
+        </div>
+        <form id="form">
+            <div class="loginDiv" id="usernameDiv">
+                <label for="username">Benutzername</label>
+                <input type="text" id="username" name="username" required placeholder="Hier ihr Benutzername eingeben...">
+            </div>
+            <div class="loginDiv" id="passwordDiv">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Hier ihr Password eingeben...">
+            </div>
+            <p>Noch kein Konto? <a href="signup.ejs">Jetzt Registrieren</a></p>
+            <div id="btnDiv">
+                <input type="submit" class="Btn" id="loginBtn" value="Anmelden">
+                <input type="reset" class="Btn" id="resetBtn" value="Zurücksetzen">
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>
