@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+// signup.ejs rendern
+app.get('/signup', (req, res) => {
+    res.render('pages/signup');
+});
+
 // calculator.ejs rendern
 app.get('/calculator', (req, res) => {
     res.render('calculator');
