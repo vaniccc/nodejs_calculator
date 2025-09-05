@@ -5,16 +5,17 @@ html, body {
 }
 
 #main {
+    width: 81%;
     height: 100%;
     padding: 20px;
 }
 
 #Display {
-    height: 25%;
+    height: 30%;
 }
 
 #BtnDiv {
-    height: 75%;
+    height: 70%;
 }
 
 .BtnRow {
@@ -27,9 +28,16 @@ html, body {
     height: 100%;
     font-size: 30px;
     color: white;
-    background-color: gray;
+    background-color: #575252;
+    border-radius: 10px;
 }
 
 .DarkBtn {
     background-color: rgb(59, 56, 56);
+}
+
+#historyDiv {
+    width: 18%;
+    height: 100%;
+    border-left: 2px solid black;
 }
