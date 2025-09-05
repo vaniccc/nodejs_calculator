@@ -55,6 +55,17 @@ html, body {
 
 #calculateBtn {
     background-color: rgb(177, 125, 177);
+    transition: all 0.25s;
+}
+
+#calculateBtn:hover {
+    background-color: rgb(151, 107, 151);
+    transition: all 0.25s;
+}
+
+#calculateBtn:active {
+    background-color: rgb(87, 62, 87);
+    transition: all 0.25s;
 }
 
 
