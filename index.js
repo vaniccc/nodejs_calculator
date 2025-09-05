@@ -26,7 +26,7 @@ app.get('/signup', (req, res) => {
 
 // calculator.ejs rendern
 app.get('/calculator', (req, res) => {
-    res.render('calculator');
+    res.render('pages/calculator');
 });
 
 // Routes
