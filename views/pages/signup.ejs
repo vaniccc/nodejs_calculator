@@ -3,31 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/resetStyle.css">
+    <link rel="stylesheet" href="/styles/cssReset.css">
     <link rel="stylesheet" href="/styles/signupStyle.css">
     <title>Taschenrechner Signup</title>
 </head>
 <body>
-     <div id="signupDiv">
-        <h1>Taschenrechner Signup</h1>
-        <div id="errorMessageDiv">
+    <!-- Main / Div -->
+    <main>
+        <!-- Container -->
+        <div id="container">
             
+            <!-- Header -->
+            <div class="layout" id="topic">
+                <h1>Signup - Taschenrechner</h1>
+            </div>
+            
+            <!-- Form -->
+            <div id="formDiv">
+                <form id="form" action="/users/signup" method="post">
+                    <div class="formContainer">
+                        <label for="username">Benutzername</label>
+                        <input type="text" id="username" name="username" required placeholder="Bitte hier ihren Benutzernamen eingeben...">
+                    </div>
+                    <div class="formContainer">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required placeholder="Bitte hier ihr Password eingeben...">
+                    </div>
+                    <div class="formContainer">
+                        <label for="confirmPassword">Password bestätigen</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Bitte hier ihr Password bestätigen...">
+                    </div>
+
+                    <div id="logDiv">
+                        <p>Bereits ein Konto? </p>
+                        <a href="/">Jetzt Anmelden</a>
+                    </div>
+
+                    <!-- Error Container -->
+                     <div id="errDiv">
+                        <p id="errorMsg"></p>
+                     </div>
+
+                    <!-- Button Container -->
+                    <div id="formBtnContainer">
+                        <input type="submit" class="formBtn" id="signupBtn" value="Registrieren">
+                        <input type="reset" class="formBtn" id="resetFormBtn" value="Zurücksetzen">
+                    </div>
+                </form>
+            </div>
         </div>
-        <form id="form">
-            <div class="signupDiv" id="usernameDiv">
-                <label for="username">Benutzername</label>
-                <input type="text" id="username" name="username" required placeholder="Hier ihr Benutzername eingeben...">
-            </div>
-            <div class="signupDiv" id="passwordDiv">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="Hier ihr Password eingeben...">
-            </div>
-            <p>Bereits ein Konto? <a href="../">Jetzt Anmelden</a></p>
-            <div id="btnDiv">
-                <input type="submit" class="Btn" id="signupBtn" value="Registrieren">
-                <input type="reset" class="Btn" id="resetBtn" value="Zurücksetzen">
-            </div>
-        </form>
-    </div>
+    </main>
+    <script>
+        const form = document.getElementById('form').addEventListener('submit', async (e) => {
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            const errorMsg = document.getElementById('errorMsg');
+
+            if(username.length < 4) {
+                errorMsg.innerHTML = "Der Benutzername muss mindestens 4 Zeichen beinhalten!";
+            }
+            else if(password.length < 8) {
+                errorMsg.innerHTML = "Das Passwort muss mindestens 8 Zeichen beinhalten!";
+            }
+            else if(password != confirmPassword) {
+                errorMsg.innerHTML = "Die Passwörter stimmen nicht überein!";
+            }
+        });
+    </script>
 </body>
 </html>

@@ -3,58 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/resetStyle.css">
+    <link rel="stylesheet" href="/styles/cssReset.css">
     <link rel="stylesheet" href="/styles/calculatorStyle.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Taschenrechner</title>
 </head>
 <body>
-    <div id="main">
-        <div id="Display"></div>
-        <div id="BtnDiv">
-            <div class="BtnRow">
-                <button class="Btn DarkBtn">%</button>
-                <button class="Btn DarkBtn">CE</button>
-                <button class="Btn DarkBtn">C</button>
-                <button class="Btn DarkBtn"><i class="material-icons">backspace</i></button>
-            </div>
-            <div class="BtnRow">
-                <button class="Btn DarkBtn">&#185;/𝓍</button> <!-- Hoch 1 Zeichen -->
-                <button class="Btn DarkBtn">𝓍²</button>
-                <button class="Btn DarkBtn">√(2&x)</button>
-                <button class="Btn DarkBtn">&#247;</button> <!-- Division Zeichen -->
-            </div>
-            <div class="BtnRow">
-                <button class="Btn">7</button>
-                <button class="Btn">8</button>
-                <button class="Btn">9</button>
-                <button class="Btn DarkBtn">&#10005;</button> <!-- Multiplikation Zeichen -->
-            </div>
-            <div class="BtnRow">
-                <button class="Btn">4</button>
-                <button class="Btn">5</button>
-                <button class="Btn">6</button>
-                <button class="Btn DarkBtn">-</button> 
-            </div>
-            <div class="BtnRow">
-                <button class="Btn">1</button>
-                <button class="Btn">2</button>
-                <button class="Btn">3</button>
-                <button class="Btn DarkBtn">+</button>
-            </div>
-            <div class="BtnRow">
-                <button class="Btn">+/-</button>
-                <button class="Btn">0</button>
-                <button class="Btn">,</button>
-                <button class="Btn" id="calculateBtn">=</button>
+    <main>
+        <div id="calculatorDiv">
+            <input type="text" id="display" readonly></input>
+            <div id="btnDiv">
+                <div class="btnRow">
+                    <button class="btn darkBtn" onclick="attachToDisplay('%')">%</button>
+                    <button class="btn darkBtn" onclick="clearInput()">CE</button>
+                    <button class="btn darkBtn" onclick="clearInput()">C</button>
+                    <button class="btn darkBtn" onclick="clearLastInput()"><i class="material-icons">backspace</i></button>
+                </div>
+                <div class="btnRow">
+                    <button class="btn darkBtn" onclick="calculateByOne()">&#185;/𝓍</button> <!-- Hoch 1 Zeichen -->
+                    <button class="btn darkBtn" onclick="calculateSquare()">𝓍²</button>
+                    <button class="btn darkBtn" onclick="calculateRoot()">²√𝓍</button>
+                    <button class="btn darkBtn" onclick="attachToDisplay('/')">&#247;</button> <!-- Division Zeichen -->
+                </div>
+                <div class="btnRow">
+                    <button class="btn" onclick="attachToDisplay('7')">7</button>
+                    <button class="btn" onclick="attachToDisplay('8')">8</button>
+                    <button class="btn" onclick="attachToDisplay('9')">9</button>
+                    <button class="btn darkBtn" onclick="attachToDisplay('*')">&#10005;</button> <!-- Multiplikation Zeichen -->
+                </div>
+                <div class="btnRow">
+                    <button class="btn" onclick="attachToDisplay('4')">4</button>
+                    <button class="btn" onclick="attachToDisplay('5')">5</button>
+                    <button class="btn" onclick="attachToDisplay('6')">6</button>
+                    <button class="btn darkBtn" onclick="attachToDisplay('-')">-</button> 
+                </div>
+                <div class="btnRow">
+                    <button class="btn" onclick="attachToDisplay('1')">1</button>
+                    <button class="btn" onclick="attachToDisplay('2')">2</button>
+                    <button class="btn" onclick="attachToDisplay('3')">3</button>
+                    <button class="btn darkBtn" onclick="attachToDisplay('+')">+</button>
+                </div>
+                <div class="btnRow">
+                    <button class="btn" onclick="changeSymbole()">+/-</button>
+                    <button class="btn" onclick="attachToDisplay('0')">0</button>
+                    <button class="btn" onclick="attachToDisplay('.')">.</button>
+                    <button class="btn" id="calculateBtn" onclick="calculate()">=</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="historyDiv"> 
-        <h2>Verlauf</h2>
+        <div id="historyDiv"> 
+            <h2>Verlauf</h2>
 
-        <button><i class="material-icons">logout</i></button>
-    </div>
+            <button><i class="material-icons">logout</i></button>
+        </div>
+    </main>
+    
+    <script>
+        let currentInput = '';
+        var calcDone = false;
+
+        function calculate() {
+            try {
+                currentInput = eval(currentInput);
+                updateDisplay();
+                calcDone = true;
+            } catch (e) {
+                console.error(e);
+                currentInput = "Error";
+                updateDisplay();
+                calcDone = true;
+            }
+        }
+
+        function calculateRoot() {
+            try {
+                currentInput = Math.sqrt(currentInput);
+                updateDisplay();
+                calcDone = true;
+            } catch (e) {
+                console.error(e);
+                currentInput = "Error";
+                updateDisplay();
+                calcDone = true;
+            }
+        }
+
+        function calculateSquare() {
+            try {
+                currentInput = Math.pow(currentInput, 2);
+                updateDisplay();
+                calcDone = true;
+            } catch (e) {
+                console.error(e);
+                currentInput = "Error";
+                updateDisplay();
+                calcDone = true;
+            }
+        }
+
+        function calculateByOne() {
+            try {
+                currentInput = 1 / currentInput;
+                updateDisplay();
+                calcDone = true;
+            } catch (e) {
+                console.error(e);
+                currentInput = "Error";
+                updateDisplay();
+                calcDone = true;
+            }
+        }
+
+        function calculateModulo() {
+            try {
+                currentInput = eval(currentInput);
+                updateDisplay();
+                calcDone = true;
+            } catch (e) {
+                console.error(e);
+                currentInput = "Error";
+                updateDisplay();
+                calcDone = true;
+            }
+        }
+
+        function changeSymbole() {
+            if(currentInput.charAt(0) == '-') {
+                let disp = currentInput;
+                document.getElementById('display').value = disp.substring(1);
+                currentInput = document.getElementById('display').value;
+            } else {
+                currentInput = '-' + currentInput;
+            }
+            updateDisplay();
+        }
+
+        function attachToDisplay(value) {
+            switch(calcDone) {
+                case value == '+':
+                case value == '-':
+                case value == '*':
+                case value == '/':
+                    currentInput += value;
+                    updateDisplay();
+                    calcDone = false;
+                    break;
+                default:
+                    resetDisplay();
+                    currentInput += value;
+                    updateDisplay();
+                    break;
+            }
+        }
+
+        function updateDisplay() {
+            document.getElementById('display').value = currentInput;
+        }
+
+        // Clear Functions
+
+        function clearInput() {
+            currentInput = '';
+            updateDisplay();
+        }
+
+        function resetDisplay() {
+            if(calcDone) {
+                clearInput();
+                calcDone = false;
+            }
+        }
+
+        function clearLastInput() {
+            let disp = currentInput;
+            document.getElementById('display').value = disp.substring(0, disp.length - 1);
+            currentInput = document.getElementById('display').value;
+        }
+    </script>
 </body>
 </html>

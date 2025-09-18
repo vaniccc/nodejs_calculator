@@ -3,32 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/resetStyle.css">
+    <link rel="stylesheet" href="/styles/cssReset.css">
     <link rel="stylesheet" href="/styles/loginStyle.css">
     <title>Taschenrechner Login</title>
 </head>
 <body>
-    <div id="loginDiv">
-        <h1>Taschenrechner Login</h1>
-        <div id="errorMessageDiv">
-            
+    <!-- Main / Div -->
+    <main>
+        <!-- Container -->
+        <div id="container">
+            <!-- Header -->
+            <div id="topic">
+                <div class="layout">
+                    <h1>Login - Taschenrechner</h1>
+                </div>
+            </div>
+            <div id="formDiv">
+                <!-- form -->
+                <form id="form" action="/users/login" method="post">
+                    <div class="formContainer">
+                        <label for="username">Benutzername</label>
+                        <input type="text" id="username" name="username" placeholder="Hier ihr Benutzername eingeben..." required>
+                    </div>
+                    <div class="formContainer">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Hier ihr Password eingeben..." required>
+                    </div>
+
+                    <div id="regDiv">
+                        <p>Noch kein Konto?</p>
+                        <a href="signup">Jetzt Registrieren</a>
+                    </div>
+
+                    <!-- Error Container -->
+                    <div id="errDiv"></div>
+                    
+                    <!-- Button Container -->
+                    <div id="formBtnContainer">
+                        <input type="submit" class="formBtn" id="loginBtn" value="Anmelden">
+                        <input type="reset" class="formBtn" id="resetFormBtn" value="Zurücksetzen">
+                    </div>
+                </form>
+            </div>
         </div>
-        <form id="form">
-            <div class="loginDiv" id="usernameDiv">
-                <label for="username">Benutzername</label>
-                <input type="text" id="username" name="username" required placeholder="Hier ihr Benutzername eingeben...">
-            </div>
-            <div class="loginDiv" id="passwordDiv">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="Hier ihr Password eingeben...">
-            </div>
-            <p>Noch kein Konto? <a href="signup">Jetzt Registrieren</a></p>
-            <div id="btnDiv">
-                <input type="submit" class="Btn" id="loginBtn" value="Anmelden">
-                <input type="reset" class="Btn" id="resetBtn" value="Zurücksetzen">
-            </div>
-        </form>
-        
-    </div>
+    </main>
 </body>
 </html>
